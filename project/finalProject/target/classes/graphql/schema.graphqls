@@ -1,0 +1,44 @@
+# Pet entity
+type Pet {
+    id: ID,
+    name: String,
+    animalType: String,
+    breed: String,
+    age: Int,
+    household: Household
+}
+
+
+# Household entity
+type Household {
+    eircode: String,
+    numberOfOccupants: Int,
+    maxNumberOfOccupants: Int,
+    ownerOccupied: Boolean
+}
+
+
+# Queries that can be performed
+type Query {
+    getAllHouseholds: [Household],
+    getAllPetsByAnimaltype(animalType: String!): [Pet],
+    getHouseholdByEircode(eircode: String!): Household,
+    getPetById(id: ID!): Pet,
+    getOldestPetAge: Int
+}
+
+
+# Defines the input type for adding a new household, requiring certain fields to be provided
+input AddHousehold {
+    eircode: String!,
+    numberOfOccupants: Int!,
+    maxNumberOfOccupants: Int!,
+    ownerOccupied: Boolean!
+}
+
+# Defines mutations that can be performed, such as creating or deleting a household
+type Mutation {
+    createHousehold(household: AddHousehold!) : Household,
+    deleteHouseholdByEircode(eircode: String!): Int,
+    deletePetById(id: ID!): Int
+}
