@@ -1,6 +1,5 @@
 package com.example.finalproject.security;
-import com.example.finalproject.entities.MyUser;
-import com.example.finalproject.repositories.MyUserRepository;
+
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -8,6 +7,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import com.example.finalproject.entities.MyUser;
+import com.example.finalproject.repositories.MyUserRepository;
 
 import java.util.Collections;
 
@@ -21,8 +23,7 @@ public class MyUserDetailsService implements UserDetailsService {
         MyUser user = myUserRepository.findById(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
         return new User(user.getEmail(), user.getPassword(), user.isEnabled(),
-                user.isAccountNonExpired(), user.isCredentialsNonExpired(), user.isAccountNonLocked(),
+                user.isAccountNonExpired(),user.isCredentialsNonExpired(), user.isAccountNonLocked(),
                 Collections.singletonList(new SimpleGrantedAuthority(user.getRole())));
     }
-
 }

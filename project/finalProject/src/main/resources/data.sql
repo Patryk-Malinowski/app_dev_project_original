@@ -26,3 +26,9 @@ INSERT INTO pets (name, animal_type, breed, age, household_eircode) VALUES ('Pol
 INSERT INTO pets (name, animal_type, breed, age, household_eircode) VALUES ('Max', 'Dog', 'German Shepherd', 5, 'D02XY45');
 INSERT INTO pets (name, animal_type, breed, age, household_eircode) VALUES ('Luna', 'Cat', 'Maine Coon', 3, 'D02XY45');
 INSERT INTO pets (name, animal_type, breed, age, household_eircode) VALUES ('Nibbles', 'Hamster', 'Syrian Hamster', 1, 'D02XY45');
+
+INSERT INTO myusers (email, password, first_name, last_name, county, role, enabled, account_non_expired, credentials_non_expired, account_non_locked)
+VALUES ('test@test.com', 'password', 'John', 'Doe', 'Cork', 'ADMIN', TRUE, TRUE, TRUE, TRUE);
+
+INSERT INTO myusers (email, password, first_name, last_name, county, role, enabled, account_non_expired, credentials_non_expired, account_non_locked)
+VALUES ('test2@test.com', 'password2', 'John2', 'Doe2', 'Kerry', 'USER', TRUE, TRUE, TRUE, TRUE);

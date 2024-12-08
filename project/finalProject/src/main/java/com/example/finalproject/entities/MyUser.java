@@ -19,9 +19,8 @@ public class MyUser {
     private String firstName;
     private String lastName;
     private String role;
+    private String county; // "Kerry or Cork"
     private boolean enabled = true;
     private boolean accountNonExpired = true;
     private boolean credentialsNonExpired = true;
-    private boolean accountNonLocked = true;
-
-}
+    private boolean accountNonLocked = true;}
